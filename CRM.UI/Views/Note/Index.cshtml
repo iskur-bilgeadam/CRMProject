@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CRM.ENTITY.Note>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Note Detail</h2>
+<a class="btn btn-sm btn-info" href="/Note/AddNote">Add Note</a>
+<p>
+    
+</p>
+<table class="table">
+   
+    <tr>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.NoteName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Detail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td>
+
+                @if (item.Status == "Kırmızı")
+                {
+                    <span class="btn btn-sm btn-danger" style="border-radius:30px"></span>
+                }
+                else if (item.Status == "Yeşil")
+                {
+                    <span class="btn btn-sm btn-success" style="border-radius:30px"></span>
+                }
+                else
+                {
+                    <span class="btn btn-sm btn-default" style="border-radius:30px"></span>
+                }
+
+            </td>
+            <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/Note/Update/@item.NoteID" class="btn btn-sm btn-primary">Update</a> |
+                <a href="/Note/Delete/@item.NoteID" class="btn btn-sm btn-warning">Delete</a> 
+
+            </td>
+
+        </tr>
+
+    }
+    
+</table>
+

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CRM.ENTITY.Lead>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="/Lead/AddLead" class="btn btn-xs btn-info">Add Lead</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LeadDetail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeadTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeadDetail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeadTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            <a href="/Lead/Update/@item.LeadID" class="btn btn-xs btn-primary">Update</a> |
+            <a href="/Lead/Delete/@item.LeadID" class="btn btn-xs btn-warning">Delete</a>           
+        </td>
+    </tr>
+}
+
+</table>
