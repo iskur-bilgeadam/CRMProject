@@ -190,6 +190,7 @@
     <Content Include="Views\Note\Update.cshtml" />
     <Content Include="Views\Lead\AddLead.cshtml" />
     <Content Include="Views\Lead\Update.cshtml" />
+    <Content Include="Views\Note\NoteLeadPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

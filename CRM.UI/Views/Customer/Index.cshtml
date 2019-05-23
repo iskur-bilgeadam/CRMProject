@@ -63,9 +63,9 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                <a href="/Customer/Update/@item.CustomerID">Update</a> |
-                <a href="/Customer/Detail/@item.CustomerID">Details</a> |
-                <a href="/Customer/Delete/@item.CustomerID">Delete</a>
+                <a href="/Customer/Update/@item.CustomerID" class="btn btn-primary btn-sm">Update</a>
+                <a href="/Customer/Detail/@item.CustomerID" class="btn btn-primary btn-sm">Details</a>
+                <a href="/Customer/Delete/@item.CustomerID"class="btn btn-primary btn-sm" style="visibility:@ViewBag.Delete">Delete</a>
             </td>
         </tr>
     }

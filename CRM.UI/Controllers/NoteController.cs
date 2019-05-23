@@ -1,5 +1,6 @@
 ﻿using CRM.BLL;
 using CRM.ENTITY;
+using CRM.UI.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace CRM.UI.Controllers
         NoteBLL noteBLL = new NoteBLL();
         CustomerBLL customerBLL = new CustomerBLL();
         EmployeeBLL employeeBLL = new EmployeeBLL();
+
+        [MyAuthenticationFilter]
         public ActionResult Index()
         {
             Customer customer = Session["Customer"] as Customer;
@@ -21,6 +24,7 @@ namespace CRM.UI.Controllers
             return View(notes);
         }
 
+        [MyAuthenticationFilter]
         public ActionResult AddNote()
         {
             return View();
@@ -29,23 +33,24 @@ namespace CRM.UI.Controllers
 
         [HttpPost]
         public ActionResult AddNote(Note note)
-        {
-           
+        {           
             Employee emp = Session["Login"] as Employee;
             Customer cust = Session["Customer"] as Customer;
             note.CustomerID = cust.CustomerID;
             note.EmployeeID = emp.EmployeeID;
             note.DateTime = DateTime.Now;
             noteBLL.AddNote(note);
-            return RedirectToAction("Index");
+            return RedirectToAction("Detail","Customer", new { id=cust.CustomerID});
         }
 
+        [MyAuthenticationFilter]
         public ActionResult Delete(int Id)
         {
             noteBLL.Delete(Id);
             return RedirectToAction("Index");
         }
 
+        [MyAuthenticationFilter]
         public ActionResult Update(int Id)
         {
             Note note = noteBLL.GetNote(Id);

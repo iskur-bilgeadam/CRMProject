@@ -28,13 +28,6 @@ namespace CRM.BLL
 
         public void AddNote(Note notes)
         {
-        //    Note note = new Note();
-        //    note.CustomerID = cust.CustomerID;
-        //    note.EmployeeID = employee.EmployeeID;
-        //    note.NoteName = notes.NoteName;
-        //    note.Status = notes.Status;
-        //    note.Detail = notes.Detail;
-        //    note.DateTime = DateTime.Now;
             db.Notes.Add(notes);
             db.SaveChanges();
         }

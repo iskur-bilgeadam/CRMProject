@@ -1,16 +1,18 @@
-﻿@model CRM.ENTITY.Customer
+﻿@using CRM.UI.Models
+@model CRM.ENTITY.Customer
 
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Customer Detail</h2>
-
+<br /><br />
+<p>
+    <a href="/Note/AddNote/" class="btn btn-primary btn-sm">Add Note</a>
+    <a href="/Lead/AddLead/" class="btn btn-primary btn-sm">Add Lead</a>
+</p>
 <div>
     <hr />
     <dl class="dl-horizontal">
-        @Html.HiddenFor(model=>model.CustomerID)
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
@@ -77,7 +79,8 @@
 
     </dl>
 </div>
-<p>
-    <a href="/Note/Index/@Model.CustomerID" class="btn btn-success"> Notes </a>
-    <a href="/Lead/Index/@Model.CustomerID" class="btn btn-success"> Leads </a>
-</p>
+
+
+@Html.Partial("~/Views/Note/NoteLeadPartialView.cshtml", new NoteModel { Id = Model.CustomerID, Tip = "Note" })
+
+@Html.Partial("~/Views/Note/NoteLeadPartialView.cshtml", new NoteModel { Id = Model.CustomerID, Tip = "Lead" })

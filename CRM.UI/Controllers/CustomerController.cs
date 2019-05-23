@@ -13,10 +13,28 @@ namespace CRM.UI.Controllers
     {
         // GET: Customer
         CustomerBLL customerBLL = new CustomerBLL();
+        LeadBLL leadBLL = new LeadBLL();
+        NoteBLL noteBLL = new NoteBLL();
         [MyAuthenticationFilter]
         public ActionResult Index()
         {
             List<Customer> customers = customerBLL.GetCustomers();
+            Employee emp = Session["Login"] as Employee;
+            foreach (EmployeesRole item in emp.EmployeesRoles)
+            {
+                if (item.Role.RoleName == "Admin")
+                {
+                    ViewBag.Delete = "visible";
+                }
+                else if (item.Role.RoleName == "Manager")
+                {
+                    ViewBag.Delete = "visible";
+                }
+                else
+                {
+                    ViewBag.Delete = "hidden";
+                }
+            }
             return View(customers);
         }
 
@@ -59,7 +77,17 @@ namespace CRM.UI.Controllers
         [MyAuthenticationFilter]
         public ActionResult Delete(int Id)
         {
-            
+            List<Lead> leads = leadBLL.GetCustomerLeads(Id);
+            List<Note> notes = noteBLL.GetCustomerNotes(Id);
+
+            foreach (Lead item in leads)
+            {
+                leadBLL.Delete(item.LeadID);
+            }
+            foreach (Note item in notes)
+            {
+                noteBLL.Delete(item.NoteID);
+            }
             customerBLL.Delete(Id);
             return RedirectToAction("Index");
         }

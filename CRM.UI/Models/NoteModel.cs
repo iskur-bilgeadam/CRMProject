@@ -9,10 +9,9 @@ namespace CRM.UI.Models
     public class NoteModel
     {
         public string Tip { get; set; }
-        public int CustomerID { get; set; }
-        public int EmployeeID { get; set; }
-        public DateTime? DateTime { get; set; }
-        public string Detail { get; set; }
-        public string Status { get; set; }
+        public int Id { get; set; }
+        public Note Note { get; set; }       
+        public Lead Lead { get; set; }
+        
     }
 }

@@ -1,0 +1,147 @@
+﻿@using CRM.BLL
+@using CRM.ENTITY
+@using CRM.UI.Models
+@model NoteModel
+
+@{
+    CustomerBLL custBLL = new CustomerBLL();
+    NoteBLL noteBLL = new NoteBLL();
+    LeadBLL leadBLL = new LeadBLL();
+    List<Note> notes = new List<Note>();
+    List<Lead> leads = new List<Lead>();
+    Customer cust = custBLL.GetCustomer(Model.Id);
+    Note note = noteBLL.GetNote(Model.Id);
+    Lead lead = leadBLL.GetLead(Model.Id);
+    if (Model.Tip == "Note")
+    {
+
+        foreach (Note item in cust.Notes)
+        {
+            notes.Add(item);
+        }
+    }
+    else
+    {
+        foreach (Lead item in cust.Leads)
+        {
+            leads.Add(item);
+        }
+    }
+}
+
+@if (Model.Tip == "Note")
+{
+    <section>
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <h5 class="p-title">@cust.Notes.Count() &nbsp; <b class="p-15">NOTES</b></h5>
+                <table class="table">
+
+                    <tr>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Note.NoteName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Note.Detail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Note.DateTime)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Note.Status)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (Note item in notes)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoteName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Detail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateTime)
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+
+                                @if (item.Status == "Kırmızı")
+                                {
+                                    <span class="btn btn-sm btn-danger" style="border-radius:30px"></span>
+                                }
+                                else if (item.Status == "Yeşil")
+                                {
+                                    <span class="btn btn-sm btn-success" style="border-radius:30px"></span>
+                                }
+                                else
+                                {
+                                    <span class="btn btn-sm btn-default" style="border-radius:30px"></span>
+                                }
+
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="/Note/Update/@item.NoteID" class="btn btn-sm btn-primary">Update</a> |
+                                <a href="/Note/Delete/@item.NoteID" class="btn btn-sm btn-warning" style="visibility:@ViewBag.Delete">Delete</a>
+
+                            </td>
+
+                        </tr>
+
+                    }
+
+                </table>
+            </div>
+        </div><!-- row -->      
+    </section>
+}
+else
+{
+    <section>
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <h5 class="p-title">@cust.Leads.Count() Leads</h5>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lead.LeadTitle)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lead.LeadDetail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lead.Date)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (Lead item in leads)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LeadDetail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LeadTitle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                <a href="/Lead/Update/@item.LeadID" class="btn btn-xs btn-primary">Update</a> |
+                                <a href="/Lead/Delete/@item.LeadID" class="btn btn-xs btn-warning">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div><!-- row -->   
+    </section>
+}
+
+
