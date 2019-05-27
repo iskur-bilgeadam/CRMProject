@@ -34,3 +34,5 @@ C:\BilgeAdam\CRMProject\CRM.BLL\obj\Debug\CRM.BLL.csproj.CoreCompileInputs.cache
 C:\BilgeAdam\CRMProject\CRM.BLL\obj\Debug\CRM.BLL.csproj.CopyComplete
 C:\BilgeAdam\CRMProject\CRM.BLL\obj\Debug\CRM.BLL.dll
 C:\BilgeAdam\CRMProject\CRM.BLL\obj\Debug\CRM.BLL.pdb
+C:\BilgeAdam\CRMProject\CRM.BLL\bin\Debug\log4net.dll
+C:\BilgeAdam\CRMProject\CRM.BLL\bin\Debug\log4net.xml

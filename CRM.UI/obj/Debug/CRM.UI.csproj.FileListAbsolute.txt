@@ -144,3 +144,5 @@ C:\BilgeAdam\CRMProject\CRM.UI\obj\Debug\CRM.UI.csproj.CoreCompileInputs.cache
 C:\BilgeAdam\CRMProject\CRM.UI\obj\Debug\CRM.UI.csproj.CopyComplete
 C:\BilgeAdam\CRMProject\CRM.UI\obj\Debug\CRM.UI.dll
 C:\BilgeAdam\CRMProject\CRM.UI\obj\Debug\CRM.UI.pdb
+C:\BilgeAdam\CRMProject\CRM.UI\bin\log4net.dll
+C:\BilgeAdam\CRMProject\CRM.UI\bin\log4net.xml

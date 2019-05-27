@@ -22,3 +22,5 @@ C:\BilgeAdam\CRMProject\CRM.ENTITY\obj\Debug\CRM.ENTITY.csproj.CoreCompileInputs
 C:\BilgeAdam\CRMProject\CRM.ENTITY\obj\Debug\CRM.ENTITY.csproj.CopyComplete
 C:\BilgeAdam\CRMProject\CRM.ENTITY\obj\Debug\CRM.ENTITY.dll
 C:\BilgeAdam\CRMProject\CRM.ENTITY\obj\Debug\CRM.ENTITY.pdb
+C:\BilgeAdam\CRMProject\CRM.ENTITY\bin\Debug\log4net.dll
+C:\BilgeAdam\CRMProject\CRM.ENTITY\bin\Debug\log4net.xml

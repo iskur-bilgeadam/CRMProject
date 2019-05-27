@@ -28,3 +28,5 @@ C:\BilgeAdam\CRMProject\CRM.DAL\obj\Debug\CRM.DAL.csproj.CoreCompileInputs.cache
 C:\BilgeAdam\CRMProject\CRM.DAL\obj\Debug\CRM.DAL.csproj.CopyComplete
 C:\BilgeAdam\CRMProject\CRM.DAL\obj\Debug\CRM.DAL.dll
 C:\BilgeAdam\CRMProject\CRM.DAL\obj\Debug\CRM.DAL.pdb
+C:\BilgeAdam\CRMProject\CRM.DAL\bin\Debug\log4net.dll
+C:\BilgeAdam\CRMProject\CRM.DAL\bin\Debug\log4net.xml
